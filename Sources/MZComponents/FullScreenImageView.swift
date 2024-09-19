@@ -10,11 +10,15 @@ import SDWebImageSwiftUI
 import SwiftUI
 import Zoomable
 
-struct FullScreenImageView: View {
-    let imageURL: URL?
+public struct FullScreenImageView: View {
+    public let imageURL: URL?
     @Environment(\.dismiss) private var dismiss
+    
+    init(imageURL: URL?) {
+        self.imageURL = imageURL
+    }
 
-    var body: some View {
+    public var body: some View {
         NavigationView {
             GeometryReader { geometry in
                 ZStack {

@@ -8,9 +8,15 @@
 
 import SwiftUI
 
-struct CloseButton: View {
+public struct CloseButton: View {
+    
     var action: () -> Void
-    var body: some View {
+    
+    public init(action: @escaping () -> Void) {
+        self.action = action
+    }
+    
+    public var body: some View {
         Button("", systemImage: "xmark", action: action)
             .foregroundStyle(.secondary)
             .font(.caption)

@@ -9,11 +9,11 @@
 import SDWebImageSwiftUI
 import SwiftUI
 
-struct TwoColumnSplitView<LeadingContent: View, TrailingContent: View>: View {
+public struct TwoColumnSplitView<LeadingContent: View, TrailingContent: View>: View {
     private let leadingContent: LeadingContent
     private let trailingContent: TrailingContent
 
-    init(
+    public init(
         @ViewBuilder leadingContent: @escaping () -> LeadingContent,
         @ViewBuilder trailingContent: @escaping () -> TrailingContent
     ) {
@@ -21,7 +21,7 @@ struct TwoColumnSplitView<LeadingContent: View, TrailingContent: View>: View {
         self.trailingContent = trailingContent()
     }
 
-    var body: some View {
+    public var body: some View {
         GeometryReader { geometry in
             let leadingContentWidth: CGFloat = geometry.size.width / 2.618
             let trailingContentWidth: CGFloat = geometry.size.width - leadingContentWidth
