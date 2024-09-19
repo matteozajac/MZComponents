@@ -5,17 +5,24 @@ import PackageDescription
 
 let package = Package(
     name: "MZComponents",
+    platforms: [.iOS(.v17), .visionOS(.v2)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "MZComponents",
             targets: ["MZComponents"]),
     ],
+    
+    dependencies: [
+        .package(url: "https://github.com/SDWebImage/SDWebImageSwiftUI", from: "3.1.2"),
+        .package(url: "https://github.com/ryohey/Zoomable", branch: "main")
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "MZComponents"),
+            name: "MZComponents",
+            dependencies: [
+                "SDWebImageSwiftUI",
+                "Zoomable"
+            ]),
         .testTarget(
             name: "MZComponentsTests",
             dependencies: ["MZComponents"]
